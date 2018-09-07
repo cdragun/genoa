@@ -854,8 +854,8 @@ class OrderedIndividual(Individual):
         # create a mask of genes to splice
         prob = random.uniform(0.25, 0.5)
         mask = [random.random() < prob for _ in range(c1.num_genes)]
-        c1.genes = _crossover_by_posn(p1.genes, p2.genes, mask)
-        c2.genes = _crossover_by_posn(p2.genes, p1.genes, mask)
+        c1.genes = _crossover_by_order(p1.genes, p2.genes, mask)
+        c2.genes = _crossover_by_order(p2.genes, p1.genes, mask)
 
     @staticmethod
     def _edge_recombination_xover(parents, children, args):
